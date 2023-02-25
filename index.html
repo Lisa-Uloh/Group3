@@ -26,21 +26,32 @@
                 </button>
             </header>
             <main>
-                <div v-if="showProduct">
-                    <figure>
-                        <img v-bind:src="product.image" width="200">
-                    </figure>
-                    <h2 v-text="product.title"></h2>
-                    <p v-html="product.description"></p>
-                    <!-- The double curly brackets is the shorter version of 'v-text' -->
-                    <p>Price: {{product.price}}</p>
-                    <p>Available Stock: {{product.availableInventory}}</p>
 
-                    <!-- This button will be disabled when "canAddToCart" is true -->
-                    <button v-on:click="addToCart" v-if="canAddToCart" class="btn btn-primary">Add to Cart</button>
-                    <!-- This button will be disabled otherwise -->
-                    <button disabled="disabled" v-else class="btn btn-primary">Add to Cart</button>
+
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div v-if="showProduct">
+                                <figure>
+                                    <img v-bind:src="product.image" width="200">
+                                </figure>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <h2 v-text="product.title"></h2>
+                            <p v-html="product.description"></p>
+                            <!-- The double curly brackets is the shorter version of 'v-text' -->
+                            <p>Price: {{product.price}}</p>
+                            <p>Available Stock: {{product.availableInventory}}</p>
+
+                            <!-- This button will be disabled when "canAddToCart" is true -->
+                            <button v-on:click="addToCart" v-if="canAddToCart" class="btn btn-primary">Add to Cart</button>
+                            <!-- This button will be disabled otherwise -->
+                            <button disabled="disabled" v-else class="btn btn-primary">Add to Cart</button>
+                        </div>
+                    </div>
                 </div>
+
 
                 <div v-else>
                     <!-- <h2 class="mb-3">Checkout</h2> -->
